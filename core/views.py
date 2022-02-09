@@ -29,7 +29,7 @@ class BookView(TemplateView):
     template_name = "book_list.html"
 
     def get(self, request):
-        book_list = Book.objects.all()
+        book_list = Book.objects.all().order_by("-created_at")
         page = request.GET.get('page', 1)
         paginator = Paginator(book_list, 5)
         try:
@@ -97,7 +97,7 @@ def book_delete_view(request, pk):
 class AuthorView(TemplateView):
     template_name = "author_list.html"
     def get(self, request):
-        author_list = Author.objects.all()
+        author_list = Author.objects.all().order_by("-created_at")
         page = request.GET.get('page', 1)
         paginator = Paginator(author_list, 5)
         try:

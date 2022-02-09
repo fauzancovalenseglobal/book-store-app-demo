@@ -16,13 +16,22 @@
   <table class="table table-dark">
     <thead>
       <tr>
-        <th>Title</th>
-        <th>Author</th>
+        <th>First Name</th>
+        <th>Last_name</th>
         <th>Email</th>
         <th>Action</th>
       </tr>
     </thead>
     <tbody>
+
+      {% if not author_list %}
+
+      <tr>
+        <th>No data are available</th>       
+      </tr>
+
+      {% else %}
+
       {% for author in author_list %}
       <tr>
         <td>{{ author.first_name }}</td>
@@ -42,6 +51,8 @@
         </td>
       </tr>
       {% endfor %}
+      {% endif %}
+
     </tbody>
   </table>
 
