@@ -3,6 +3,19 @@
 
 <div class="container" style="margin-top: 50px">
   <h2 style="margin-top: 50px; text-align: center">Author List</h2>
+
+  <div align="center">
+    {% if messages %}
+    {% for msg in messages %}
+    <div class="alert alert-info alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <b>{{msg.message}}</b>
+    </div>
+    {% endfor %}
+    {% endif %}
+</div>
+
+
   <button
     type="button"
     style="float: right; margin: 5px"
@@ -239,5 +252,14 @@ $(document).ready(function () {
 </script>
 
 
+<script>
+  $(document).ready(function () {
+      window.setTimeout(function () {
+          $(".alert").fadeTo(4000, 0).slideUp(200, function () {
+              $(this).remove();
+          });
+      });
+  }, 5000);
+</script>
 
 {% endblock %}

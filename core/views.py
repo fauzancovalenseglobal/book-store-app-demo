@@ -81,13 +81,13 @@ class BookCreateView(TemplateView):
         create_form = BookAddForm(request.POST)
         if create_form.is_valid():
             ob = create_form.save(request)
-            messages.success(request, "Created {0} Book successfully".format(ob.title))
+            messages.success(request, "Created Book successfully")
             return redirect('/book-list')
 
 
 def book_delete_view(request, pk):
     Book.objects.get(pk=pk).delete()
-    messages.success(request, "Created {0} Book successfully".format(pk))
+    messages.success(request, "Deleted Book successfully")
     return redirect('/book-list')
 
 #.............................................................................
@@ -150,11 +150,11 @@ class AuthorCreateView(TemplateView):
         create_form = AuthorAddForm(request.POST)
         if create_form.is_valid():
             ob = create_form.save(request)
-            messages.success(request, "Created {0} Book successfully".format(ob.email))
+            messages.success(request, "Created Author successfully!")
             return redirect('/author-list')
             
 
 def author_delete_view(request, pk):
     Author.objects.get(pk=pk).delete()
-    messages.success(request, "Created {0} Book successfully".format(pk))
+    messages.success(request, "Deleted Author successfully")
     return redirect('/author-list')
