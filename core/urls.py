@@ -10,6 +10,13 @@ from .views import (
     AuthorCreateView,
 )
 
+from .api_views import (
+    BookListAPI,
+    BookCreateAPI,
+    AuthorCreateAPI,
+    AuthorListAPI,
+)
+
 app_name = "core"
 
 urlpatterns = [
@@ -20,5 +27,8 @@ urlpatterns = [
     path("author-list", AuthorView.as_view(), name="author-list"),
     path("author-add", AuthorCreateView.as_view(), name="author-add"),
     path("<int:pk>/author-delete", author_delete_view, name="author-delete"),
-
+    path("api/v1/book-list", BookListAPI.as_view(), name="book-list-api"),
+    path("api/v1/book-add", BookCreateAPI.as_view(), name="book-add-api"),
+    path("api/v1/author-list", AuthorListAPI.as_view(), name="book-author-api"),
+    path("api/v1/author-add", AuthorCreateAPI.as_view(), name="book-author-api"),
 ]

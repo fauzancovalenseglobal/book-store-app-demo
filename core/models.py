@@ -16,7 +16,7 @@ class Author(models.Model):
         verbose_name_plural = "Authors" 
 
     def __str__(self) -> str:
-        return self.first_name
+        return f"{self.first_name} {self.last_name}"
 
 class Book(models.Model):
     """This model stores the data into Author table in db"""
@@ -33,3 +33,4 @@ class Book(models.Model):
 
     def __str__(self) -> str:
         return self.title
+    
