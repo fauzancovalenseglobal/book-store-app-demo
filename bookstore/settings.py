@@ -130,7 +130,9 @@ import django_heroku
 
 CORS_ORIGIN_WHITELIST = [
      'https://localhost:3000',
-     "https://book-store-app-react.herokuapp.com"
+     "https://book-store-app-react.herokuapp.com",
+    "http://book-store-app-react.herokuapp.com",
+    "http://book-store-app-demo.herokuapp.com"
 ]
 
 
