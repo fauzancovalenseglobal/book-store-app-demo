@@ -129,7 +129,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 import django_heroku
 
 CORS_ORIGIN_WHITELIST = [
-     'https://localhost:3000'
+     'https://localhost:3000',
+     "https://book-store-app-react.herokuapp.com"
 ]
 
 
