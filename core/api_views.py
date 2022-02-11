@@ -12,7 +12,7 @@ class BookListAPI(APIView):
     permission_classes = (AllowAny,)
     serializer_class = BookListSerializer
     def get(self, request):
-        book = Book.objects.all()
+        book = Book.objects.all().order_by("-created_at")
         serializer = self.serializer_class(book, many=True, context={"request": request})
         return Response({
                     "data": serializer.data,
@@ -77,7 +77,7 @@ class AuthorListAPI(APIView):
     permission_classes = (AllowAny,)
     serializer_class = AuthorSerializer
     def get(self, request):
-        author = Author.objects.all()
+        author = Author.objects.all().order_by("-created_at")
         serializer = self.serializer_class(author, many=True, context={"request": request})
         return Response({
                     "data": serializer.data,
